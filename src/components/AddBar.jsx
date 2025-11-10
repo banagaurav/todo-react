@@ -10,11 +10,12 @@ const AddBar = ({ todos, setTodos }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (todo.trim() === "") return;
-
+    const position = todos.length + 1;
     const addnewTodo = {
       id: Date.now(),
       todo: todo,
       completed: false,
+      position: position,
     };
 
     setTodos([...todos, addnewTodo]);

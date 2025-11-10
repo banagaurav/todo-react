@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import AddBar from "./components/AddBar";
+import TodoCard from "./components/TodoCard";
+
+const Action = {
+  DELETE: "delete",
+  TOGGLE_STATUS: "Toggle Status",
+};
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -19,14 +25,7 @@ function App() {
   return (
     <div>
       <AddBar todos={todos} setTodos={setTodos} />
-      {todos &&
-        todos.map((todo) => (
-          <ul>
-            <li>
-              {todo.todo} - {todo.completed ? "Completed" : "Pending"}
-            </li>
-          </ul>
-        ))}
+      {todos && <TodoCard todos={todos} setTodos={setTodos} />}
     </div>
   );
 }
